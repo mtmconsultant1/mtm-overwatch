@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTM × {{BUSINESS_NAME}} | Overwatch Intel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700;900&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════
+     MTM BRAND SYSTEM — Brand Bible v1.0
+     Obsidian/Jet Black + Midas Gold
+  ═══════════════════════════════════════ */
+  :root {
+    /* MTM Official Palette */
+    --gold-glossy:    #D4AF37;
+    --gold-matte:     #B6862C;
+    --gold-light:     #e8cc6a;
+    --gold-dim:       rgba(212,175,55,0.12);
+    --gold-glow:      rgba(212,175,55,0.06);
+    --obsidian:       #0A0A0A;
+    --jet:            #1A1A1A;
+    --chrome-white:   #F5F5F5;
+    --higloss-chrome: #E1E1E1;
+    --silver:         #C0C0C0;
+    --text-body:      #C8C4BC;
+    --muted:          #5a5a5a;
+    --border:         #222222;
+
+    /* TARGET BRAND DNA VARIABLES — swap per client */
+    --target-accent:  {{TARGET_BRAND_COLOR}};   /* e.g. #2C5F8A for medical blue */
+    --target-accent-dim: {{TARGET_ACCENT_DIM}}; /* e.g. rgba(44,95,138,0.12) */
+
+    /* Typography — Brand Bible 2.3 */
+    --font-display:  'Playfair Display SC', 'Georgia', serif;
+    --font-body:     'Merriweather', 'Georgia', serif;
+    --font-fallback: 'Georgia', serif;
+
+    --radius: 10px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--obsidian);
+    color: var(--text-body);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── CIRCUIT TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* All content above texture */
+  header, section, div, footer { position: relative; z-index: 1; }
+
+  /* ── HEADER ── */
+  .header {
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* MTM Monogram — neural-circuit crown reference */
+  .mtm-mark {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--gold-matte), var(--gold-glossy));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 15px;
+    color: #000;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(212,175,55,0.2);
+  }
+
+  .mtm-wordmark { line-height: 1.2; }
+  .mtm-name {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--chrome-white);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .mtm-tagline {
+    font-family: var(--font-body);
+    font-size: 9px;
+    color: var(--gold-matte);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* Collab badge — MTM × Target */
+  .collab-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--jet);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 6px 16px 6px 8px;
+  }
+  .collab-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold-glossy);
+    box-shadow: 0 0 8px var(--gold-glossy);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.5; transform:scale(0.7); }
+  }
+  .collab-text {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--silver);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .collab-text span { color: var(--gold-glossy); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 80px 40px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-matte);
+    margin-bottom: 20px;
+  }
+
+  /* Circuit line decoration */
+  .circuit-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .circuit-line::before,
+  .circuit-line::after {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-matte));
+  }
+  .circuit-line::after {
+    background: linear-gradient(90deg, var(--gold-matte), transparent);
+  }
+
+  /* MTM × TARGET collab headline */
+  .collab-headline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .collab-brand {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 900;
+    line-height: 1.1;
+  }
+  .collab-brand.mtm-brand { color: var(--gold-glossy); }
+  .collab-brand.target-brand { color: var(--chrome-white); }
+  .collab-x {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 3vw, 28px);
+    color: var(--gold-matte);
+    opacity: 0.7;
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-body);
+    max-width: 580px;
+    margin: 0 auto 16px;
+    line-height: 1.8;
+  }
+
+  .hero-hook {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--gold-matte);
+    font-style: italic;
+    margin-bottom: 48px;
+  }
+
+  /* ── SCORE ROW ── */
+  .score-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    max-width: 860px;
+    margin: 0 auto 72px;
+    padding: 0 40px;
+  }
+
+  .score-card {
+    background: var(--jet);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .score-card:hover {
+    border-color: rgba(212,175,55,0.35);
+    transform: translateY(-3px);
+  }
+  /* 30% gloss accent — top bar */
+  .score-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-glossy), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .score-card:hover::before { opacity: 1; }
+
+  .score-num {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .score-num.gold { color: var(--gold-glossy); }
+  .score-num.red  { color: #e05252; }
+  .score-num.green{ color: #52c07a; }
+  .score-label {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+  .score-sub {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 860px;
+    margin: 0 auto 64px;
+    padding: 0 40px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--gold-matte);
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--chrome-white);
+    letter-spacing: 0.02em;
+  }
+
+  .section-pill {
+    margin-left: auto;
+    background: var(--gold-dim);
+    border: 1px solid rgba(212,175,55,0.2);
+    color: var(--gold-matte);
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ── EXECUTIVE SNAPSHOT ── */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media(max-width:620px){ .exec-grid { grid-template-columns: 1fr; } }
+
+  .exec-card {
+    background: var(--jet);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .exec-card.full { grid-column: 1/-1; }
+  .exec-card.target-card {
+    border-color: var(--target-accent, rgba(212,175,55,0.3));
+    background: linear-gradient(135deg, var(--jet), rgba(10,10,10,0.8));
+  }
+
+  .exec-label {
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold-matte);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .exec-label::before {
+    content: '';
+    display: block;
+    width: 16px; height: 1px;
+    background: var(--gold-matte);
+  }
+
+  .exec-card p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--text-body);
+  }
+  .exec-card p strong {
+    color: var(--chrome-white);
+    font-weight: 700;
+  }
+
+  /* ── COMPETITIVE MAP ── */
+  .comp-wrap {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    overflow-x: auto;
+  }
+  .comp-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .comp-table th {
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.8);
+    white-space: nowrap;
+  }
+  .comp-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--jet);
+    vertical-align: middle;
+  }
+  .comp-table tr:last-child td { border-bottom: none; }
+  .comp-table tr:hover td { background: #1e1e1e; }
+  .comp-name {
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--chrome-white);
+    font-size: 14px;
+  }
+  .comp-url {
+    font-family: var(--font-body);
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* Status pills */
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .pill-red    { background:rgba(224,82,82,0.12);   color:#e05252; border:1px solid rgba(224,82,82,0.25); }
+  .pill-gold   { background:var(--gold-dim);         color:var(--gold-glossy); border:1px solid rgba(212,175,55,0.25); }
+  .pill-green  { background:rgba(82,192,122,0.12);  color:#52c07a; border:1px solid rgba(82,192,122,0.25); }
+  .pill-silver { background:rgba(192,192,192,0.1);  color:var(--silver); border:1px solid rgba(192,192,192,0.2); }
+
+  /* ── KEYWORD TABLE ── */
+  .kw-wrap {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    overflow-x: auto;
+  }
+  .kw-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .kw-table th {
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.8);
+  }
+  .kw-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--jet);
+    vertical-align: middle;
+  }
+  .kw-table tr:last-child td { border-bottom: none; }
+  .kw-table tr:hover td { background: #1e1e1e; }
+  .kw-word {
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--chrome-white);
+  }
+  .diff-track {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .diff-bar {
+    width: 72px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .diff-fill { height:100%; border-radius:3px; }
+  .diff-fill.low  { background: #52c07a; }
+  .diff-fill.med  { background: var(--gold-glossy); }
+  .diff-fill.high { background: #e05252; }
+  .diff-label { font-size:10px; }
+  .diff-label.low  { color:#52c07a; }
+  .diff-label.med  { color:var(--gold-glossy); }
+  .diff-label.high { color:#e05252; }
+
+  /* ── GAP ANALYSIS ── */
+  .gap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+  .gap-card {
+    background: var(--jet);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .gap-card:hover {
+    border-color: rgba(212,175,55,0.35);
+    transform: translateY(-2px);
+  }
+  .gap-icon { font-size: 20px; margin-bottom: 12px; }
+  .gap-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--chrome-white);
+    margin-bottom: 8px;
+  }
+  .gap-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-body);
+    line-height: 1.65;
+  }
+  .gap-tag {
+    margin-top: 14px;
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold-matte);
+  }
+
+  /* ── FORGE AUDIO PLAYER ── */
+  .forge-wrap {
+    max-width: 860px;
+    margin: 0 auto 72px;
+    padding: 0 40px;
+  }
+
+  .forge-card {
+    background: linear-gradient(135deg, var(--jet) 60%, rgba(10,10,10,0.95));
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 14px;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Circuit node decorations */
+  .forge-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(212,175,55,0.07), transparent 70%);
+    pointer-events: none;
+  }
+  .forge-card::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 20px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(212,175,55,0.04), transparent 70%);
+    pointer-events: none;
+  }
+
+  .forge-eyebrow {
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-matte);
+    margin-bottom: 8px;
+  }
+
+  .forge-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--chrome-white);
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+
+  .forge-sub {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+
+  .forge-player {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .forge-btn {
+    width: 46px; height: 46px;
+    background: linear-gradient(135deg, var(--gold-matte), var(--gold-glossy));
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .forge-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 24px rgba(212,175,55,0.45);
+  }
+  .forge-btn svg { fill: #000; }
+
+  .forge-info { flex: 1; min-width: 0; }
+  .forge-track {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--chrome-white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .forge-meta {
+    font-family: var(--font-body);
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .forge-wave {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+  .w-bar {
+    width: 3px;
+    border-radius: 2px;
+    background: var(--gold-glossy);
+    opacity: 0.35;
+    animation: wbar 1.5s ease-in-out infinite;
+    animation-play-state: paused;
+    transform: scaleY(0.3);
+    transform-origin: center;
+  }
+  .w-bar.active { animation-play-state: running; }
+  .w-bar:nth-child(2n){ animation-delay: 0.2s; }
+  .w-bar:nth-child(3n){ animation-delay: 0.4s; }
+  .w-bar:nth-child(5n){ animation-delay: 0.1s; }
+  @keyframes wbar {
+    0%,100%{ transform:scaleY(0.25); opacity:0.25; }
+    50%{ transform:scaleY(1); opacity:0.85; }
+  }
+
+  .forge-timer {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  /* ── COLLABORATION CTA ── */
+  .cta-wrap {
+    max-width: 860px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+  }
+
+  .cta-card {
+    background: var(--jet);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold-glossy);
+    border-radius: var(--radius);
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gold glow behind CTA */
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 200px;
+    background: radial-gradient(ellipse, rgba(212,175,55,0.06), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* MTM × TARGET collab lockup in CTA */
+  .cta-collab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .cta-logo-mtm {
+    background: linear-gradient(135deg, var(--gold-matte), var(--gold-glossy));
+    color: #000;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 900;
+    padding: 8px 14px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+  .cta-collab-x {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--muted);
+  }
+  .cta-logo-target {
+    border: 1px solid var(--border);
+    color: var(--chrome-white);
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+    border-color: var(--target-accent, var(--border));
+  }
+
+  .cta-eyebrow {
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-matte);
+    margin-bottom: 16px;
+  }
+
+  .cta-headline {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 900;
+    color: var(--chrome-white);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  .cta-body {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-body);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  /* Dual CTA buttons */
+  .cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--gold-matte), var(--gold-glossy));
+    color: #000;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 900;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212,175,55,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--chrome-white);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 13px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(212,175,55,0.4);
+    color: var(--gold-glossy);
+  }
+
+  /* LinkedIn icon */
+  .li-icon {
+    width: 16px; height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .construction-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(212,175,55,0.06);
+    border: 1px solid rgba(212,175,55,0.15);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-style: italic;
+    color: var(--gold-matte);
+    margin-bottom: 20px;
+  }
+
+  .cta-disclaimer {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .cta-disclaimer a {
+    color: var(--gold-matte);
+    text-decoration: none;
+  }
+  .cta-disclaimer a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-left {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .footer-left span { color: var(--gold-matte); }
+  .footer-right {
+    font-family: var(--font-fallback);
+    font-size: 10px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity:1; transform:none; }
+
+  @media(max-width:600px){
+    .header { padding: 14px 20px; }
+    .hero   { padding: 52px 20px 40px; }
+    .score-row, .section, .forge-wrap, .cta-wrap { padding-left: 20px; padding-right: 20px; }
+    .cta-card { padding: 36px 20px; }
+    .footer   { padding: 20px; }
+    .collab-headline { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="header">
+  <div class="header-left">
+    <div class="mtm-mark">MT</div>
+    <div class="mtm-wordmark">
+      <div class="mtm-name">MT Media AI</div>
+      <div class="mtm-tagline">Mindset. Tech. Mastery.</div>
+    </div>
+  </div>
+  <div class="collab-badge">
+    <div class="collab-dot"></div>
+    <div class="collab-text">Live Intel · <span>Overwatch</span></div>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero reveal">
+  <div class="hero-eyebrow">
+    <span class="circuit-line">Confidential Intelligence Report</span>
+  </div>
+
+  <!-- The collaboration headline — MTM × Target -->
+  <div class="collab-headline">
+    <div class="collab-brand mtm-brand">MT Media AI</div>
+    <div class="collab-x">×</div>
+    <div class="collab-brand target-brand">{{BUSINESS_NAME}}</div>
+  </div>
+
+  <p class="hero-sub">
+    We built this report for <strong>{{BUSINESS_NAME}}</strong> before we ever introduced ourselves,
+    because great partnerships start with doing the work first, not promising it.
+  </p>
+  <p class="hero-hook">"Here's exactly where you stand in The Woodlands market. No pitch. Just intelligence."</p>
+</section>
+
+<!-- ══ SCORE ROW ══ -->
+<div class="score-row reveal">
+  <div class="score-card">
+    <div class="score-num gold" id="sss-score">{{SSS}}</div>
+    <div class="score-label">Search Sovereignty</div>
+    <div class="score-sub">Your digital authority score</div>
+  </div>
+  <div class="score-card">
+    <div class="score-num red" id="cas-score">{{CAS}}</div>
+    <div class="score-label">Competitor Pressure</div>
+    <div class="score-sub">Threat level in your market</div>
+  </div>
+  <div class="score-card">
+    <div class="score-num green">{{KEYWORDS}}</div>
+    <div class="score-label">Keywords Found</div>
+    <div class="score-sub">Ranking opportunities live</div>
+  </div>
+  <div class="score-card">
+    <div class="score-num gold">{{GAPS}}</div>
+    <div class="score-label">Revenue Gaps</div>
+    <div class="score-sub">Doors your competitors left open</div>
+  </div>
+</div>
+
+<!-- ══ SECTION 01 — EXECUTIVE SNAPSHOT ══ -->
+<section class="section reveal">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Executive Snapshot</h2>
+    <span class="section-pill">The Big Picture</span>
+  </div>
+
+  <div class="exec-grid">
+    <div class="exec-card full">
+      <div class="exec-label">Market Intelligence</div>
+      <p>{{EXECUTIVE_SUMMARY}}</p>
+    </div>
+    <div class="exec-card">
+      <div class="exec-label">Your Biggest Strength</div>
+      <p>{{STRENGTH}}</p>
+    </div>
+    <!-- TARGET BRAND DNA CARD — uses their colors/identity -->
+    <div class="exec-card target-card">
+      <div class="exec-label" style="color:var(--target-accent, var(--gold-matte))">
+        Your Biggest Opportunity
+      </div>
+      <p>{{OPPORTUNITY}} — <strong>this is the gap we'd move on first.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 02 — COMPETITIVE MAP ══ -->
+<section class="section reveal">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Competitive Pulse Map</h2>
+    <span class="section-pill">Who's In Your Airspace</span>
+  </div>
+
+  <div class="comp-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Reviews</th>
+          <th>SEO Strength</th>
+          <th>Social Presence</th>
+          <th>Threat Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="comp-name">{{COMP_1_NAME}}</div><div class="comp-url">{{COMP_1_URL}}</div></td>
+          <td>{{COMP_1_REVIEWS}}</td>
+          <td><span class="pill pill-red">{{COMP_1_SEO}}</span></td>
+          <td><span class="pill pill-gold">{{COMP_1_SOCIAL}}</span></td>
+          <td><span class="pill pill-red">High</span></td>
+        </tr>
+        <tr>
+          <td><div class="comp-name">{{COMP_2_NAME}}</div><div class="comp-url">{{COMP_2_URL}}</div></td>
+          <td>{{COMP_2_REVIEWS}}</td>
+          <td><span class="pill pill-gold">{{COMP_2_SEO}}</span></td>
+          <td><span class="pill pill-silver">{{COMP_2_SOCIAL}}</span></td>
+          <td><span class="pill pill-gold">Medium</span></td>
+        </tr>
+        <tr>
+          <td><div class="comp-name">{{COMP_3_NAME}}</div><div class="comp-url">{{COMP_3_URL}}</div></td>
+          <td>{{COMP_3_REVIEWS}}</td>
+          <td><span class="pill pill-green">{{COMP_3_SEO}}</span></td>
+          <td><span class="pill pill-silver">{{COMP_3_SOCIAL}}</span></td>
+          <td><span class="pill pill-green">Low</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ SECTION 03 — KEYWORD MATRIX ══ -->
+<section class="section reveal">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Keyword Opportunity Matrix</h2>
+    <span class="section-pill">Where The Traffic Lives</span>
+  </div>
+
+  <div class="kw-wrap">
+    <table class="kw-table">
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Monthly Searches</th>
+          <th>Difficulty</th>
+          <th>Currently Ranking?</th>
+          <th>Opportunity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="kw-word">{{KW_1}}</td>
+          <td>{{KW_1_VOL}}/mo</td>
+          <td><div class="diff-track"><div class="diff-bar"><div class="diff-fill low" style="width:28%"></div></div><span class="diff-label low">Low</span></div></td>
+          <td><span class="pill pill-red">No</span></td>
+          <td><span class="pill pill-gold">🔥 High</span></td>
+        </tr>
+        <tr>
+          <td class="kw-word">{{KW_2}}</td>
+          <td>{{KW_2_VOL}}/mo</td>
+          <td><div class="diff-track"><div class="diff-bar"><div class="diff-fill med" style="width:52%"></div></div><span class="diff-label med">Medium</span></div></td>
+          <td><span class="pill pill-red">No</span></td>
+          <td><span class="pill pill-gold">⚡ High</span></td>
+        </tr>
+        <tr>
+          <td class="kw-word">{{KW_3}}</td>
+          <td>{{KW_3_VOL}}/mo</td>
+          <td><div class="diff-track"><div class="diff-bar"><div class="diff-fill low" style="width:18%"></div></div><span class="diff-label low">Low</span></div></td>
+          <td><span class="pill pill-green">Partial</span></td>
+          <td><span class="pill pill-silver">Medium</span></td>
+        </tr>
+        <tr>
+          <td class="kw-word">{{KW_4}}</td>
+          <td>{{KW_4_VOL}}/mo</td>
+          <td><div class="diff-track"><div class="diff-bar"><div class="diff-fill high" style="width:72%"></div></div><span class="diff-label high">High</span></div></td>
+          <td><span class="pill pill-red">No</span></td>
+          <td><span class="pill pill-gold">⚡ High</span></td>
+        </tr>
+        <tr>
+          <td class="kw-word">{{KW_5}}</td>
+          <td>{{KW_5_VOL}}/mo</td>
+          <td><div class="diff-track"><div class="diff-bar"><div class="diff-fill low" style="width:14%"></div></div><span class="diff-label low">Low</span></div></td>
+          <td><span class="pill pill-red">No</span></td>
+          <td><span class="pill pill-gold">🔥 High</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ SECTION 04 — REVENUE GAP ANALYSIS ══ -->
+<section class="section reveal">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Revenue Gap Analysis</h2>
+    <span class="section-pill">Doors Left Open</span>
+  </div>
+
+  <div class="gap-grid">
+    <div class="gap-card">
+      <div class="gap-icon">🔍</div>
+      <div class="gap-title">{{GAP_1_TITLE}}</div>
+      <div class="gap-desc">{{GAP_1_DESC}}</div>
+      <div class="gap-tag">→ Quick Win · 7 Days</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-icon">📱</div>
+      <div class="gap-title">{{GAP_2_TITLE}}</div>
+      <div class="gap-desc">{{GAP_2_DESC}}</div>
+      <div class="gap-tag">→ 30-Day Impact</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-icon">✍️</div>
+      <div class="gap-title">{{GAP_3_TITLE}}</div>
+      <div class="gap-desc">{{GAP_3_DESC}}</div>
+      <div class="gap-tag">→ Authority Builder</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-icon">⭐</div>
+      <div class="gap-title">{{GAP_4_TITLE}}</div>
+      <div class="gap-desc">{{GAP_4_DESC}}</div>
+      <div class="gap-tag">→ Revenue Multiplier</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORGE AUDIO ══ -->
+<div class="forge-wrap reveal">
+  <div class="forge-card">
+    <div class="forge-eyebrow">⚡ The Forge — Intel Briefing</div>
+    <div class="forge-title">Hear Your Full Recon Report</div>
+    <div class="forge-sub">A personal market breakdown built exclusively for {{BUSINESS_NAME}}.</div>
+
+    <div class="forge-player">
+      <button class="forge-btn" onclick="toggleForge()" id="forgeBtn" aria-label="Play audio">
+        <svg id="play-ic" width="16" height="16" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg id="pause-ic" width="16" height="16" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="forge-info">
+        <div class="forge-track">{{BUSINESS_NAME}} — Market Intelligence Briefing</div>
+        <div class="forge-meta">Midas Touch Media · The Forge · Overwatch Series</div>
+      </div>
+      <div class="forge-wave" id="forge-wave">
+        <div class="w-bar" style="height:8px"></div>
+        <div class="w-bar" style="height:16px"></div>
+        <div class="w-bar" style="height:22px"></div>
+        <div class="w-bar" style="height:12px"></div>
+        <div class="w-bar" style="height:20px"></div>
+        <div class="w-bar" style="height:10px"></div>
+        <div class="w-bar" style="height:18px"></div>
+        <div class="w-bar" style="height:14px"></div>
+        <div class="w-bar" style="height:22px"></div>
+        <div class="w-bar" style="height:8px"></div>
+      </div>
+      <div class="forge-timer" id="ftimer">0:00</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 05 — COLLABORATION CTA ══ -->
+<div class="cta-wrap reveal">
+  <div class="cta-card">
+
+    <!-- MTM × Target lockup -->
+    <div class="cta-collab">
+      <div class="cta-logo-mtm">MT Media AI</div>
+      <div class="cta-collab-x">×</div>
+      <div class="cta-logo-target">{{BUSINESS_NAME}}</div>
+    </div>
+
+    <div class="cta-eyebrow">05 — The Invitation</div>
+
+    <h2 class="cta-headline">
+      We'd Like to Build<br>Something With You.
+    </h2>
+
+    <p class="cta-body">
+      This intelligence belongs to {{BUSINESS_NAME}} — no strings attached.
+      If even one insight sparked a thought, we'd consider that a worthy introduction.
+      Connect with us on LinkedIn or drop us a line. No pressure. No pitch decks.
+      Just a conversation between two brands that take their craft seriously.
+    </p>
+
+    <div class="cta-buttons">
+      <!-- PRIMARY: LinkedIn -->
+      <a class="btn-primary" href="{{LINKEDIN_URL}}" target="_blank" onclick="trackLinkedIn()">
+        <svg class="li-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        Connect on LinkedIn
+      </a>
+
+      <!-- SECONDARY: Email reply -->
+      <a class="btn-secondary" href="mailto:{{MTM_EMAIL}}?subject=Re: {{BUSINESS_NAME}} Overwatch Report&body=Hi Kareem,%0D%0A%0DI received the Overwatch Intel Report for {{BUSINESS_NAME}} and wanted to connect.%0D%0A%0D" onclick="trackEmail()"
+        <svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,12 2,6"/>
+        </svg>
+        Reply via Email
+      </a>
+    </div>
+
+    <p class="cta-disclaimer">
+      This report was built exclusively for {{BUSINESS_NAME}} and is not for distribution.
+      Questions? <a href="mailto:{{MTM_EMAIL}}">{{MTM_EMAIL}}</a> · <a href="{{LINKEDIN_URL}}" target="_blank">linkedin.com/in/mtmediaai</a>
+    </p>
+
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-left">
+    <span>MT Media AI</span> · <span>@mtmediaai</span> · Mindset. Tech. Mastery.
+  </div>
+  <div class="footer-right">
+    Overwatch Intelligence Series · Woodlands TX · {{REPORT_DATE}}
+  </div>
+</footer>
+
+<script>
+  // ═══════════════════════════════════════════════════
+  // MTM SONIC IDENTITY SYSTEM
+  // Brand Bible §3.1 + Overwatch Thread — The Midas Thud
+  // All sounds synthesized via Web Audio API — zero deps
+  // ═══════════════════════════════════════════════════
+
+  let CTX = null;
+  let audioUnlocked = false;
+
+  function getCtx() {
+    if (!CTX) CTX = new (window.AudioContext || window.webkitAudioContext)();
+    if (CTX.state === 'suspended') CTX.resume();
+    return CTX;
+  }
+
+  // Unlock audio on first user gesture
+  function unlockAudio() {
+    if (audioUnlocked) return;
+    audioUnlocked = true;
+    getCtx();
+    // ── MIDAS THUD fires first on page entry ──
+    // Then MTM D-minor signature follows — Thud → Signature
+    // Like Netflix ta-dum: the brand announces itself before anything else
+    setTimeout(() => {
+      playMidasThud();
+      setTimeout(() => playMTMSignature(), 520); // Thud lands, then signature rises
+    }, 400);
+    document.removeEventListener('click', unlockAudio);
+    document.removeEventListener('touchstart', unlockAudio);
+  }
+  document.addEventListener('click', unlockAudio, { once: true });
+  document.addEventListener('touchstart', unlockAudio, { once: true });
+
+  // ── FOOTER BOOKMARK: Midas Thud fires when footer enters view ──
+  // The brand signs off the same way it signed on
+  // "The crown lands twice — once at the door, once at the exit"
+  let footerThudFired = false;
+  const footerObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !footerThudFired && audioUnlocked) {
+        footerThudFired = true;
+        playMidasThud();
+      }
+    });
+  }, { threshold: 0.5 });
+  window.addEventListener('load', () => {
+    const footer = document.querySelector('.footer');
+    if (footer) footerObs.observe(footer);
+  });
+
+  // ─────────────────────────────────────────
+  // UTILITY: Master gain + limiter
+  // ─────────────────────────────────────────
+  function masterChain(ctx) {
+    const master = ctx.createGain();
+    master.gain.value = 0.55; // polite volume
+    const comp = ctx.createDynamicsCompressor();
+    comp.threshold.value = -18;
+    comp.knee.value = 6;
+    comp.ratio.value = 4;
+    comp.attack.value = 0.003;
+    comp.release.value = 0.1;
+    master.connect(comp);
+    comp.connect(ctx.destination);
+    return master;
+  }
+
+  // ─────────────────────────────────────────
+  // 1. MTM SONIC SIGNATURE
+  // 4-note D-minor rising arpeggio + digital beeps
+  // Brand Bible §3.1: 110 BPM · 2.2s · D-minor
+  // D4=293.66 F4=349.23 A4=440 D5=587.33
+  // ─────────────────────────────────────────
+  function playMTMSignature() {
+    const ctx = getCtx();
+    const out = masterChain(ctx);
+    const bpm = 110;
+    const beat = 60 / bpm; // 0.545s per beat
+    const notes = [293.66, 349.23, 440.00, 587.33]; // D4 F4 A4 D5
+    const now = ctx.currentTime;
+
+    notes.forEach((freq, i) => {
+      const t = now + i * beat;
+
+      // ── Main arpeggio tone (warm sine + slight detune) ──
+      const osc = ctx.createOscillator();
+      const env = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, t);
+      osc.frequency.setValueAtTime(freq * 1.002, t + 0.01); // micro detune = warmth
+      env.gain.setValueAtTime(0, t);
+      env.gain.linearRampToValueAtTime(0.35, t + 0.02);
+      env.gain.exponentialRampToValueAtTime(0.001, t + beat * 0.85);
+      osc.connect(env); env.connect(out);
+      osc.start(t); osc.stop(t + beat);
+
+      // ── Digital beep layer (triangle, +1 octave) ──
+      const bOsc = ctx.createOscillator();
+      const bEnv = ctx.createGain();
+      bOsc.type = 'triangle';
+      bOsc.frequency.value = freq * 2;
+      bEnv.gain.setValueAtTime(0, t);
+      bEnv.gain.linearRampToValueAtTime(0.08, t + 0.005);
+      bEnv.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+      bOsc.connect(bEnv); bEnv.connect(out);
+      bOsc.start(t); bOsc.stop(t + 0.15);
+
+      // ── Gold shimmer (high-freq sparkle on last note) ──
+      if (i === 3) {
+        [1174.66, 1318.51, 1567.98].forEach((sh, si) => {
+          const sOsc = ctx.createOscillator();
+          const sEnv = ctx.createGain();
+          sOsc.type = 'sine';
+          sOsc.frequency.value = sh;
+          sEnv.gain.setValueAtTime(0, t + si * 0.04);
+          sEnv.gain.linearRampToValueAtTime(0.04, t + si * 0.04 + 0.01);
+          sEnv.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+          sOsc.connect(sEnv); sEnv.connect(out);
+          sOsc.start(t + si * 0.04); sOsc.stop(t + 0.6);
+        });
+      }
+    });
+  }
+
+  // ─────────────────────────────────────────
+  // 2. THE MIDAS THUD
+  // "Weight of gold dropping" — deep sub-bass impact
+  // + gold shimmer overtones on decay
+  // Overwatch Thread: prestige conversion moment sound
+  // ─────────────────────────────────────────
+  function playMidasThud() {
+    const ctx = getCtx();
+    const out = masterChain(ctx);
+    const now = ctx.currentTime;
+
+    // ── Sub-bass body (65Hz thud) ──
+    const sub = ctx.createOscillator();
+    const subEnv = ctx.createGain();
+    sub.type = 'sine';
+    sub.frequency.setValueAtTime(65, now);
+    sub.frequency.exponentialRampToValueAtTime(28, now + 0.18); // pitch drop = weight
+    subEnv.gain.setValueAtTime(0.9, now);
+    subEnv.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+    sub.connect(subEnv); subEnv.connect(out);
+    sub.start(now); sub.stop(now + 0.5);
+
+    // ── Mid punch (130Hz body) ──
+    const mid = ctx.createOscillator();
+    const midEnv = ctx.createGain();
+    mid.type = 'triangle';
+    mid.frequency.setValueAtTime(130, now);
+    mid.frequency.exponentialRampToValueAtTime(55, now + 0.12);
+    midEnv.gain.setValueAtTime(0.5, now);
+    midEnv.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+    mid.connect(midEnv); midEnv.connect(out);
+    mid.start(now); mid.stop(now + 0.3);
+
+    // ── Noise transient (attack crack — gold striking surface) ──
+    const bufLen = ctx.sampleRate * 0.08;
+    const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let j = 0; j < bufLen; j++) data[j] = (Math.random() * 2 - 1) * Math.pow(1 - j/bufLen, 3);
+    const noise = ctx.createBufferSource();
+    const nFilter = ctx.createBiquadFilter();
+    const nEnv = ctx.createGain();
+    noise.buffer = buf;
+    nFilter.type = 'bandpass';
+    nFilter.frequency.value = 800;
+    nFilter.Q.value = 0.8;
+    nEnv.gain.setValueAtTime(0.4, now);
+    nEnv.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+    noise.connect(nFilter); nFilter.connect(nEnv); nEnv.connect(out);
+    noise.start(now); noise.stop(now + 0.1);
+
+    // ── Gold shimmer tail (harmonic overtones) ──
+    [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+      const s = ctx.createOscillator();
+      const sE = ctx.createGain();
+      s.type = 'sine';
+      s.frequency.value = freq;
+      const delay = i * 0.02;
+      sE.gain.setValueAtTime(0, now + delay);
+      sE.gain.linearRampToValueAtTime(0.06 - i * 0.01, now + delay + 0.015);
+      sE.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.55);
+      s.connect(sE); sE.connect(out);
+      s.start(now + delay); s.stop(now + delay + 0.6);
+    });
+  }
+
+  // ─────────────────────────────────────────
+  // 3. SECTION CHIME
+  // Gold coin landing — metallic ping on reveal
+  // ─────────────────────────────────────────
+  function playSectionChime(variant = 0) {
+    const ctx = getCtx();
+    const out = masterChain(ctx);
+    const now = ctx.currentTime;
+    const baseFreqs = [523.25, 587.33, 659.25, 698.46]; // C5 D5 E5 F5
+    const freq = baseFreqs[variant % baseFreqs.length];
+
+    // Metallic ping body
+    const osc = ctx.createOscillator();
+    const env = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(freq, now);
+    osc.frequency.exponentialRampToValueAtTime(freq * 0.98, now + 0.3);
+    env.gain.setValueAtTime(0.18, now);
+    env.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+    osc.connect(env); env.connect(out);
+    osc.start(now); osc.stop(now + 0.6);
+
+    // Shimmer harmonic
+    const h = ctx.createOscillator();
+    const hE = ctx.createGain();
+    h.type = 'sine';
+    h.frequency.value = freq * 2.76; // inharmonic partial = metallic
+    hE.gain.setValueAtTime(0.06, now);
+    hE.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+    h.connect(hE); hE.connect(out);
+    h.start(now); h.stop(now + 0.35);
+  }
+
+  // ─────────────────────────────────────────
+  // 4. FORGE IGNITION
+  // Electrical spark + warm tone burst
+  // ─────────────────────────────────────────
+  function playForgeIgnition() {
+    const ctx = getCtx();
+    const out = masterChain(ctx);
+    const now = ctx.currentTime;
+
+    // Electrical spark (filtered noise sweep)
+    const bufLen = ctx.sampleRate * 0.15;
+    const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let j = 0; j < bufLen; j++) data[j] = (Math.random() * 2 - 1) * Math.pow(1 - j/bufLen, 2);
+    const spark = ctx.createBufferSource();
+    const hpf = ctx.createBiquadFilter();
+    const sparkEnv = ctx.createGain();
+    spark.buffer = buf;
+    hpf.type = 'highpass';
+    hpf.frequency.setValueAtTime(2000, now);
+    hpf.frequency.exponentialRampToValueAtTime(8000, now + 0.15);
+    sparkEnv.gain.setValueAtTime(0.3, now);
+    sparkEnv.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+    spark.connect(hpf); hpf.connect(sparkEnv); sparkEnv.connect(out);
+    spark.start(now); spark.stop(now + 0.2);
+
+    // Warm tone burst (D4 root)
+    const tone = ctx.createOscillator();
+    const tEnv = ctx.createGain();
+    tone.type = 'sine';
+    tone.frequency.setValueAtTime(293.66, now + 0.05);
+    tEnv.gain.setValueAtTime(0, now + 0.05);
+    tEnv.gain.linearRampToValueAtTime(0.25, now + 0.1);
+    tEnv.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+    tone.connect(tEnv); tEnv.connect(out);
+    tone.start(now + 0.05); tone.stop(now + 0.6);
+  }
+
+  // ─────────────────────────────────────────
+  // 5. SCROLL PULSE
+  // Circuit tick — neural feedback at depth milestones
+  // ─────────────────────────────────────────
+  function playScrollPulse() {
+    const ctx = getCtx();
+    const out = masterChain(ctx);
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const env = ctx.createGain();
+    osc.type = 'square';
+    osc.frequency.value = 1200;
+    env.gain.setValueAtTime(0.04, now);
+    env.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+    osc.connect(env); env.connect(out);
+    osc.start(now); osc.stop(now + 0.05);
+  }
+
+  // ─────────────────────────────────────────
+  // 6. HOVER TICK (subtle UI feedback)
+  // ─────────────────────────────────────────
+  function playHoverTick() {
+    if (!audioUnlocked) return;
+    const ctx = getCtx();
+    const out = masterChain(ctx);
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const env = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = 880;
+    env.gain.setValueAtTime(0.025, now);
+    env.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+    osc.connect(env); env.connect(out);
+    osc.start(now); osc.stop(now + 0.04);
+  }
+
+  // ═══════════════════════════════════════════════════
+  // SCROLL REVEAL — with section chimes
+  // ═══════════════════════════════════════════════════
+  let chimeCount = 0;
+  const revEls = document.querySelectorAll('.reveal');
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        const delay = i * 100;
+        setTimeout(() => {
+          e.target.classList.add('visible');
+          if (audioUnlocked) playSectionChime(chimeCount++);
+        }, delay);
+        revObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revEls.forEach(el => revObs.observe(el));
+
+  // ═══════════════════════════════════════════════════
+  // SCORE COUNTER ANIMATION
+  // ═══════════════════════════════════════════════════
+  function countUp(el, target, dur = 2000) {
+    const start = performance.now();
+    const update = now => {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 4);
+      el.textContent = Math.round(ease * target);
+      if (p < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const sss = document.getElementById('sss-score');
+      const cas = document.getElementById('cas-score');
+      const sv = parseInt(sss.textContent) || 42;
+      const cv = parseInt(cas.textContent) || 78;
+      sss.textContent = '0'; cas.textContent = '0';
+      countUp(sss, sv);
+      setTimeout(() => countUp(cas, cv), 300);
+    }, 500);
+  });
+
+  // ═══════════════════════════════════════════════════
+  // FORGE PLAYER — with ignition sound
+  // ═══════════════════════════════════════════════════
+  let playing = false, secs = 0, timer;
+  function toggleForge() {
+    playing = !playing;
+    document.getElementById('play-ic').style.display  = playing ? 'none'  : 'block';
+    document.getElementById('pause-ic').style.display = playing ? 'block' : 'none';
+    document.querySelectorAll('.w-bar').forEach(b => {
+      if (playing) b.classList.add('active');
+      else         b.classList.remove('active');
+    });
+    if (playing) {
+      playForgeIgnition();
+      timer = setInterval(() => {
+        secs++;
+        const m = Math.floor(secs/60), s = secs%60;
+        document.getElementById('ftimer').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+      }, 1000);
+      trackEvent('AUDIO_PLAY');
+    } else {
+      clearInterval(timer);
+    }
+  }
+
+  // ═══════════════════════════════════════════════════
+  // CTA BUTTONS — Midas Thud on click
+  // ═══════════════════════════════════════════════════
+  document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+    btn.addEventListener('mouseenter', () => playHoverTick());
+    btn.addEventListener('click', () => {
+      playMidasThud();
+    });
+  });
+
+  // ═══════════════════════════════════════════════════
+  // SCROLL DEPTH — pulse at milestones + tracking
+  // ═══════════════════════════════════════════════════
+  const depths = { 25:false, 50:false, 75:false, 100:false };
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+    [25,50,75,100].forEach(d => {
+      if (pct >= d && !depths[d]) {
+        depths[d] = true;
+        if (audioUnlocked) playScrollPulse();
+        trackEvent(`SCROLL_${d}`);
+      }
+    });
+  });
+
+  // ═══════════════════════════════════════════════════
+  // TRACKING — HubSpot behavioral events
+  // ═══════════════════════════════════════════════════
+  function trackEvent(type, data={}) {
+    if (window._hsq) {
+      window._hsq.push(['trackCustomBehavioralEvent', {
+        name: `mtm_overwatch_${type.toLowerCase()}`,
+        properties: { report_id:'{{REPORT_ID}}', business:'{{BUSINESS_NAME}}', ...data }
+      }]);
+    }
+    console.log(`[MTM Overwatch] ${type}`, data);
+  }
+
+  // CTA click trackers
+  function trackLinkedIn() { playMidasThud(); trackEvent('CTA_LINKEDIN'); }
+  function trackEmail()    { playMidasThud(); trackEvent('CTA_EMAIL'); }
+</script>
+</body>
+</html>
